@@ -17,7 +17,7 @@ const client = new MongoClient(uri, {
 
 // async function run() {
 //   try {
-//     // Connect the client to the server	(optional starting in v4.7)
+//     Connect the client to the server	(optional starting in v4.7)
 //     await client.connect( async (err) => 
 //     { 
 //         const collection = client.db('sample_mflix').collection('movies')
@@ -36,7 +36,7 @@ const client = new MongoClient(uri, {
 //                     ]
 //         const agg = await collection.aggregate(pipeline).toArray()
 //         console.log(agg);
-//         client.close();              
+//         // client.close();              
 //     }
 //     );
 //     // Send a ping to confirm a successful connection
@@ -65,8 +65,10 @@ client.connect( async (err) =>
                         }
                     }
                     ]
-        const agg = await collection.aggregate("pipeline").toArray()
+        const agg = await collection.aggregate(pipeline).toArray()
         console.log(agg);
-        client.close();              
+                    
     }
     );
+
+    client.close();  

@@ -7,13 +7,20 @@ const addressSchema = new mongoose.Schema({
 
 const userSchema = new mongoose.Schema({
     name: String,
-    age: Number,
+    age: {
+      type: Number,
+      min:1,
+    },
     email:{
     type: String,
     required:true,
     lowercase: true
     },
-    createAt: Date,
+    createAt: {
+        type: Date,
+        immutable:true,
+        default:() => new Date(),
+    },
     updatedAt: Date,
     bestFriend: mongoose.SchemaTypes.ObjectId,
     hobbies:[String],

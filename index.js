@@ -5,13 +5,24 @@ const User = require('./user')
 run()
 async function run(){
   mongoose.connect('mongodb+srv://mongo:Coooper%40123@cluster0.qmlhy.mongodb.net/test');
-  const user = await User.create({name: "Cooper", age: 10})
-  user.name = "cooper naidu"
-  await user.save()
-  
-  // const user = new User({name: "Cooper", age: 10})
+  try{
+    const user = await User.create({
+    name: "Cooper", 
+    age: 10,
+    hobbies:["Pc gaming","weight lifting"],
+    address:{
+      street:'chellappa street',
+      city: "chennai"
+    }
+  })
+  // user.name = "cooper naidu"
   // await user.save()
   console.log(user);
+  }catch(err){
+    console.error(err.message);
+    
+  }
+  
   
 }
 

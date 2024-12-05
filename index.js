@@ -8,7 +8,7 @@ async function run(){
   try{
     const user = await User.create({
     name: "Cooper", 
-    age: 10,
+    age: 17,
     email:"TEST@test.com",
     hobbies:["Pc gaming","weight lifting"],
     address:{

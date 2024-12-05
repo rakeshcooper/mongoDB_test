@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 async function run(){
       try {
-      await mongoose.connect('mongodb+srv://mongo:Coooper%40123@cluster0.qmlhy.mongodb.net/blog');
+      await mongoose.connect('mongodb+srv://mongo:Coooper%40123@cluster0.qmlhy.mongodb.net/test');
     } catch (error) {
       console.log(error);
     }

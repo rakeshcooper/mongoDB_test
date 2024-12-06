@@ -36,4 +36,21 @@ const userSchema = new mongoose.Schema({
     address: addressSchema
 })
 
+userSchema.methods.sayHi = function(){
+  console.log(`Hi my name is ${this.name}`)
+}
+
+userSchema.statics.findByName = function(name){
+  return this.find({name: new RegExp(name,'i')})
+}
+
+userSchema.query.byName = function(name){
+  return this.where({name: new RegExp(name,'i')})
+}
+
+userSchema.virtual("namedEmail").get = function(){
+  return `${this.name} <${this.email}>`
+}
+
+
 module.exports = mongoose.model("user", userSchema)

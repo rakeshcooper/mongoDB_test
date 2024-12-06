@@ -20,16 +20,21 @@ async function run(){
   // // await user.save()
   // console.log(user);
   // const user = await User.findById("6752011c86fceb291ac4b295")
-  const user = await User.where("age")
-  .equals(26)
-  .where("name")
-  .equals("Cooper")
-  .populate("bestFriend")
-  .limit(1)
+  // const user = await User.where("age")
+  // .equals(26)
+  // .where("name")
+  // .equals("Cooper")
+  // .populate("bestFriend")
+  // .limit(1)
   // .select("age")
   // user[0].bestFriend = "6752082f11963f5f32122486"
   // await user[0].save()
+    // console.log(user);
+
+    const user = await User.findOne({name: "Cooper", email:'test@test.com'})
     console.log(user);
+    console.log(user.namedEmail)
+    // user.sayHi()
     
   }catch(err){
     console.error(err.message);
